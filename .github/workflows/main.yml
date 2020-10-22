@@ -1,10 +1,10 @@
 name: Build GNU Toolchain
 
 on:
-  push:
-    branches: [ nuclei* ]
-  pull_request:
-    branches: [ nuclei* ]
+    workflow_dispatch:
+defaults:
+  run:
+    shell: bash
 
 jobs:
   build_glibc_linux_mac:
