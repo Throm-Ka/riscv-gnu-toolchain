@@ -178,7 +178,7 @@ jobs:
         wget https://github.com/libexpat/libexpat/releases/download/R_2_2_9/expat-2.2.9.tar.bz2
         tar -xjf expat-2.2.9.tar.bz2
         cd expat-2.2.9
-        ./configure --host=i686-w64-mingw32 --prefix=/usr/i686-w64-mingw32/
+        ./configure --host=i686-w64-mingw32 --prefix=/home/runner/work/i686-w64-mingw32/
         make -j4
         sudo make install
     - name: Configure
@@ -199,7 +199,7 @@ jobs:
       run: |
           PREFIX=${HOME}/riscv
           cd $PREFIX
-          cp /usr/i686-w64-mingw32/bin/*.dll bin/
+          cp /home/runner/work/i686-w64-mingw32/bin/*.dll bin/
           set +e
           for i in `find . -name *.dll`
           do
