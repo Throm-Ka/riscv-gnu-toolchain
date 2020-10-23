@@ -1,4 +1,4 @@
-name: Build ASR Toolchain
+name: Build ASR Toolchain (linux&windows)
 
 on:
     workflow_dispatch:
@@ -7,7 +7,7 @@ defaults:
     shell: bash
 
 jobs:
-  build_bare_linux_mac:
+  build_bare_linux:
     name: baremetal for ${{ matrix.os }} 
     runs-on: ${{ matrix.os }}
     strategy:
@@ -28,11 +28,6 @@ jobs:
       run: |
           sudo apt-get install autoconf automake autotools-dev bc bison \
           build-essential curl dejagnu expect flex gawk gperf libtool patchutils texinfo
-    - name: Install Dependencies on macOS
-      if: startsWith(matrix.os, 'macOS')
-      run: |
-          brew update
-          brew install zlib expat gawk gnu-sed
     - name: Configure
       run: |
         PREFIX=${HOME}/riscv
@@ -77,7 +72,7 @@ jobs:
         path: asr_riscv_gnu_toolchain_prebuilt_elf_${{ matrix.os }}.tar.bz2
 
   build_bare_windows:
-    needs: [build_bare_linux_mac]
+    needs: [build_bare_linux]
     name: baremetal for Windows
 
     runs-on: ubuntu-16.04
