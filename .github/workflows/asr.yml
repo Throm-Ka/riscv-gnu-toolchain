@@ -1,4 +1,4 @@
-name: Build GNU Toolchain
+name: Build ASR Toolchain
 
 on:
     workflow_dispatch:
