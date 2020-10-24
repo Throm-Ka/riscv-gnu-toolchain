@@ -7,7 +7,7 @@ defaults:
     shell: bash
 
 jobs:
-  build_bare_linux_mac:
+  build_bare_mac:
     name: baremetal for ${{ matrix.os }} 
     runs-on: ${{ matrix.os }}
     strategy:
