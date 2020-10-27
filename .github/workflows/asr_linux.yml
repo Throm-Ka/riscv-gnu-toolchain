@@ -107,7 +107,7 @@ jobs:
     - name: Install third-parties libraries for Windows Build
       run: |
         # Remove dynamic dll in mingw
-        for i in `find /usr/i686-w64-mingw32/ -name "*.dll"`; do mv $i $i.bak;  done
+        for i in `find /usr/i686-w64-mingw32/ -name "*.dll"`; do sudo mv $i $i.bak;  done
         mkdir 3rd_libs
         cd 3rd_libs
         echo "Download and compile expat"
