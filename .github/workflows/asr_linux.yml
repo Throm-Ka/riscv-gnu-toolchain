@@ -106,6 +106,7 @@ jobs:
         cd expat-2.2.9
         ./configure --host=i686-w64-mingw32 --prefix=/usr/i686-w64-mingw32/
         make -j4
+        sudo make install
         # Remove dll dependencies such as zlib1.dll and libexpat-1.dll which can be checked using https://github.com/lucasg/Dependencies
         for i in `find /usr/i686-w64-mingw32/ -name "*.dll"`; do sudo mv $i $i.bak;  done
         [ -f /usr/x86_64-w64-mingw32/lib/zlib1.dll ] && sudo mv /usr/x86_64-w64-mingw32/lib/zlib1.dll /usr/x86_64-w64-mingw32/lib/zlib1.dll.bak
