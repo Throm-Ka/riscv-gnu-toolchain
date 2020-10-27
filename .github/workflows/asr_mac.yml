@@ -25,11 +25,6 @@ jobs:
     - name: Install Dependencies on macOS
       if: startsWith(matrix.os, 'macOS')
       run: |
-          cd "$(brew --repo)"
-          git remote set-url origin https://mirrors.ustc.edu.cn/brew.git
-          cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
-          git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git
-          brew update
           brew install zlib expat gawk gnu-sed
     - name: Configure
       run: |
